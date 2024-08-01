@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <script type="module" src="main.js" defer></script>
+    <script src="https://public.flourish.studio/resources/embed.js"></script>
+    <style>
+      .fade {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .fade.fade-out {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body class="font-jost flex flex-col bg-background">
+    <!-- <div class="w-1/2 first-chart">
+      <div class="flourish-embed flourish-hierarchy" data-src="visualisation/18929625"></div>
+    </div> -->
+
+    <!-- HERO PANEL -->
+    <div class="h-screen flex items-center justify-center">
+      <div class="absolute top-0 flex justify-between w-full">
+        <img class="h-[80px] md:h-full" src="/bg-images/fries.svg" />
+        <img class="h-16 md:h-full" src="/bg-images/cucumber.svg" />
+        <img class="h-16 md:h-full scale-x-[-1]" src="/bg-images/fries.svg" />
+      </div>
+
+      <div class="flex items-center justify-center w-full">
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl lg:text-5xl mb-12">
+            <div class="mb-5">Is the cafeteria food really bad or</div>
+            <div>are we just not aware of our needs?</div>
+          </div>
+
+          <div>
+            <div class="font-bold">Madhavi Sharma</div>
+            <div>Information Design</div>
+          </div>
+        </div>
+      </div>
+
+      <img class="absolute h-16 md:h-1/3 left-0 bottom-10" src="/bg-images/rasam.svg" />
+      <img class="absolute h-16 md:h-1/2 right-0 bottom-4" src="/bg-images/sahi-paneer.svg" />
+    </div>
+
+    <!-- PEOPLE TEXT -->
+    <div
+      class="h-screen flex flex-col items-center justify-center text-xl w-2/3 self-center justify-self-center text-center mb-10"
+    >
+      <div>
+        <span class="text-3xl font-medium"><span class="text-numberRed">9</span> out of 10</span>
+        students at the National Institute of Design,
+      </div>
+      <div class="mb-16">
+        Bangalore feel like their nutritional requirements are not being met....
+      </div>
+
+      <img src="/images/people.svg" class="mb-12" />
+
+      <div class="mb-10">
+        They eat at the campus cafeteria at least 3-4 times a day, and don’t want to opt for food
+        from outside due to a variety of reasons which range from the mess food being convenient &
+        accessible to the fact that they have already paid for it and don’t want to spend extra for
+        food outside to not having cooking facilities set up in their apartments.
+      </div>
+
+      <div class="mb-10">
+        Is the menu really lacking in nutritious food? Are there other factors which are preventing
+        us from making the most out of the available food in the mess?
+      </div>
+
+      <div>Let’s have a deep dive into the cafeteria menu served on a typical Wednesday.</div>
+    </div>
+
+    <!-- WEDNESDAY MEALS -->
+    <div class="h-screen flex flex-col items-center justify-center px-4 md:px-0 py-7 mb-20">
+      <img src="/images/wednesday_meal.svg" class="h-full hidden md:block" />
+      <img src="/images/wednesday_meal_mobile.svg" class="h-full md:hidden" />
+    </div>
+
+    <!-- CALORIE CHART -->
+    <div
+      class="w-full flex flex-col items-center justify-center text-xl self-center justify-self-center text-center mb-24 md:mb-16"
+    >
+      <div class="mb-5">
+        ...and the typical amount of calories and macronutrients present in its constituents
+      </div>
+      <div class="h-full w-3/5">
+        <div class="flourish-embed flourish-hierarchy" data-src="visualisation/18920184"></div>
+      </div>
+    </div>
+
+    <!-- SERVE RECOMMENDATION -->
+    <div
+      class="h-screen flex flex-col items-center justify-center text-xl w-2/3 self-center justify-self-center mb-36 py-10"
+    >
+      <ul class="list-disc mb-10">
+        <li class="mb-5">
+          Healthier options at snack time such as choosing corn over french fries can help with
+          calorie regulation.
+        </li>
+        <li class="mb-5">
+          Protein requirements are being met sufficiently for non-vegetarians on days that chicken
+          is served. Chicken is only served on Wednesdays at Lunch. For vegetarians and for all
+          other days, dal curry, buttermilk, eggs may be consumed to meet protein requirements.
+        </li>
+        <li class="mb-5">
+          Contrary to complains about the lack of items containing fiber, there are enough items to
+          suffice the daily fiber requirements.
+        </li>
+        <li class="mb-5">
+          A single boiled egg constitutes 55% of the daily cholesterol requirement.
+        </li>
+      </ul>
+
+      <img src="/images/serves.svg" class="mb-14" />
+
+      <div class="text-center">
+        Having a good understanding of the nutritional breakdown of the food we consume on a daily
+        basis and the requirements of our bodies can serve as a powerful tool to help regulate our
+        eating habits.
+      </div>
+    </div>
+
+    <!-- PEOPLE FOODS -->
+    <div
+      class="h-screen flex flex-col items-center justify-center text-xl px-4 md:px-0 md:w-2/3 self-center justify-self-center md:mb-48 py-10"
+    >
+      <div class="mb-8 text-center">
+        Now let’s see what your meals should look like on a Wednesday. Use the toggle below to find
+        a category to suit your gender and activity levels. The following visualizations and
+        calculations are done assuming the average weight of an Adult Woman is 55kg and that of an
+        Adult man is 65kg.
+      </div>
+
+      <div id="your-plate-dropdown" class="mb-[-30px] md:mb-8"></div>
+
+      <img id="plate-image" class="fade h-full" alt="Plate Image" src="/your-plate/MS.svg" />
+    </div>
+
+    <!-- YOUR PLATE -->
+    <div
+      class="flex flex-col items-center justify-center px-4 md:px-0 md:w-2/3 text-xl self-center justify-self-center text-center mb-24 md:mb-16"
+    >
+      <div class="mb-5">
+        The above are just suggestions for one possible combination of items from the menu to try
+        and meet your nutritional needs. The visualization may be used as a refernce to craft a meal
+        that suits your nutritional needs and tastes.
+      </div>
+      <div class="h-full md:w-1/2">
+        <div class="flourish-embed flourish-hierarchy" data-src="visualisation/18929625"></div>
+      </div>
+    </div>
+  </body>
+</html>
